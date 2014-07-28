@@ -1,0 +1,51 @@
+<?
+$children = $this->viewModel()->getCurrent()->getChildren();
+$child = $children[0];
+$route = $child->route;
+echo $this->doctype();
+?>
+
+<html lang="en">
+  <head>
+    <?= $this->headMeta()
+        ->setCharset('utf-8')
+        ->appendName('viewport', 'width=device-width, initial-scale=1.0')
+        ->appendName('X-UA-Compatible', 'IE=edge,chrome=1')
+    ?>
+
+    <?= $this->headTitle('Magazines')->setSeparator(' - ') ?>
+
+    <?= $this->headLink()
+        ->prependStylesheet($this->basePath() . '/css/bootstrap.min.css')
+    ?>
+
+    <?= $this->headScript()
+        ->prependFile(
+            $this->basePath() . '/js/html5shiv.js',
+            'text/javascript',
+            array('conditional' => 'lt IE 9')
+        );
+    ?>
+
+  </head>
+  <body>
+    <div class="container">
+      <?= $this->content ?>
+    </div>
+    <!-- Piwik -->
+    <script type="text/javascript">
+      var _paq = _paq || [];
+      _paq.push(["trackPageView"]);
+      _paq.push(["enableLinkTracking"]);
+
+      (function() {
+        var u=(("https:" == document.location.protocol) ? "https" : "http") + "://stats.weblacarte.com/";
+        _paq.push(["setTrackerUrl", u+"piwik.php"]);
+        _paq.push(["setSiteId", "4"]);
+        var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0]; g.type="text/javascript";
+        g.defer=true; g.async=true; g.src=u+"piwik.js"; s.parentNode.insertBefore(g,s);
+      })();
+    </script>
+    <!-- End Piwik Code -->
+  </body>
+</html>

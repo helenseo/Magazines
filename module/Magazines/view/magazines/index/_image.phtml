@@ -1,0 +1,10 @@
+<?php
+$link = isset($link) ? $link : true;
+?>
+<? if (null != $image): ?>
+  <? if (true == $link): ?>
+    <a href="<?= $this->url('image', array('id' => $image->getId())); ?>"><img src="/data/images/<?= $image->getFilename() ?>" alt="" class="thumbnail pull-right"></a>
+  <? else: ?>
+    <img src="/data/images/<?= $image->getFilename() ?>" alt="" class="thumbnail">
+  <? endif; ?>
+<? endif; ?>

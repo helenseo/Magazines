@@ -1,0 +1,34 @@
+<?php
+$this->headTitle()->prepend($image->getFilename());
+?>
+<ol class="breadcrumb">
+  <li><a href="<?= $this->url('home') ?>">Magazines</a></li>
+  <? if (null != $article): ?>
+  <li><a href="<?= $this->url(
+        'article',
+        array('id' => $article->getId())
+    ) ?>"><?= $article->getTitle() ?></a></li>
+  <? elseif (null != $magazine): ?>
+  <li><a href="<?= $this->url(
+        'magazine',
+        array('id' => $magazine->getId())
+    ) ?>"><?= $magazine->getName() ?></a></li>
+  <? endif; ?>
+  <li class="active">Image</li>
+</ol>
+<h2><?= $image->getFilename() ?></h2>
+<?= $this->partial(
+  'magazines/index/_image',
+  array(
+    'image' => $image,
+    'link' => false,
+  )
+) ?>
+<?= $this->partial(
+  'magazines/index/_comments',
+  array(
+    'comments' => $comments,
+    'on' => 'image',
+    'id' => $image->getId()
+  )
+) ?>

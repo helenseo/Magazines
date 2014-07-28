@@ -1,0 +1,22 @@
+<ol class="breadcrumb">
+  <li>&nbsp;</li>
+</ol>
+<div class="row">
+  <div class="col-xs-6">
+    <h2>Magazines</h2>
+    <? foreach($magazines as $magazine): ?>
+        <h3><a href="<?= $this->url(
+            'magazine',
+            array('id' => $magazine->getId())
+        ) ?>"><?= $magazine->getName() ?></a></h3>
+    <? endforeach; ?>
+  </div>
+  <div class="col-xs-6 text-center">
+    <div class="well">
+      <a href="/data/files/Magazines.zip">
+        <img src="/img/zip.png" alt=""><br>
+        Download Source (updated!)
+      </a>
+    </div>
+  </div>
+</div>

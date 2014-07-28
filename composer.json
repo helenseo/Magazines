@@ -1,0 +1,16 @@
+{
+    "name": "podo/magazines",
+    "description": "Magazines Demo App",
+    "license": "MIT",
+    "keywords": [
+        "framework",
+        "zf2",
+        "magazines"
+    ],
+    "homepage": "http://magazines.philsown.org/",
+    "require": {
+        "php": ">=5.3.3",
+        "zendframework/zendframework": "2.2.*",
+        "doctrine/doctrine-orm-module": "0.*"
+    }
+}

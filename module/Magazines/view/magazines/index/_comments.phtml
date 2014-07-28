@@ -1,0 +1,11 @@
+<h3>Comments</h3>
+<? if (0 == count($comments)): ?>
+  <p>None.</p>
+<? endif; ?>
+<p><a href="<?= $this->url('comment', array('on' => $on, 'id' => $id)) ?>">Add a comment</a>.</p>
+<? if (0 < count($comments)): ?>
+  <? foreach($comments as $comment): ?>
+    <p><?= $comment->getComment() ?><br>
+    <?= $comment->getName() ?></p>
+  <? endforeach; ?>
+<? endif; ?>

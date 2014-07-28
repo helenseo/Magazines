@@ -1,0 +1,78 @@
+<?php
+
+if ('article' == $on) {
+    $linkHref = $this->url('article', array('id' => $item->getId()));
+    $linkText = $item->getTitle();
+} else {
+    $linkHref = $this->url('image', array('id' => $item->getId()));
+    $linkText = $item->getFilename();
+}
+
+$name = $form->get('name');
+$email = $form->get('email');
+$url = $form->get('url');
+$comment = $form->get('comment');
+
+$this->headTitle()->prepend($linkText)
+    ->prepend('Comment on ' . ucWords($on));
+
+?>
+<ol class="breadcrumb">
+  <li><a href="<?= $this->url('home') ?>">Magazines</a></li>
+  <? if (null != $article): ?>
+  <li><a href="<?= $this->url(
+        'article',
+        array('id' => $article->getId())
+    ) ?>"><?= $article->getTitle() ?></a></li>
+  <? elseif (null != $magazine): ?>
+  <li><a href="<?= $this->url(
+        'magazine',
+        array('id' => $magazine->getId())
+    ) ?>"><?= $magazine->getName() ?></a></li>
+  <? endif; ?>
+  <li><a href="<?= $linkHref ?>"><?= $linkText ?></a></li>
+  <li class="active">Comment</li>
+</ol>
+<h2>Comment on <a href="<?= $linkHref ?>"><?= $linkText ?></a></h2>
+<?= $this->form()->openTag($form) ?>
+<div class="row">
+  <div class="col-xs-4">
+    <div class="form-group">
+      <?= $this->formLabel($name) ?>
+
+      <?= $this->formText($name) ?>
+
+       <?= $this->formElementErrors($name) ?>
+
+    </div>
+    <div class="form-group">
+      <?= $this->formLabel($email) ?>
+
+      <?= $this->formEmail($email) ?>
+
+       <?= $this->formElementErrors($email) ?>
+
+    </div>
+
+    <div class="form-group">
+      <?= $this->formLabel($url) ?>
+
+      <?= $this->formText($url) ?>
+
+       <?= $this->formElementErrors($url) ?>
+
+    </div>
+
+    <div class="form-group">
+      <?= $this->formLabel($comment) ?>
+
+      <?= $this->formTextarea($comment) ?>
+
+       <?= $this->formElementErrors($comment) ?>
+
+    </div>
+
+    <button type="submit">Comment</button>
+  </div>
+</div>
+<?= $this->form()->closeTag($form); ?>

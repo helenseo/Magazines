@@ -1,0 +1,27 @@
+<?php
+$this->headTitle()->prepend($article->getTitle());
+?>
+<ol class="breadcrumb">
+  <li><a href="<?= $this->url('home') ?>">Magazines</a></li>
+  <li><a href="<?= $this->url(
+        'magazine',
+        array('id' => $magazine->getId())
+    ) ?>"><?= $magazine->getName() ?></a></li>
+  <li class="active">Article</li>
+</ol>
+<?= $this->partial(
+  'magazines/index/_image',
+  array(
+    'image' => $image,
+  )
+) ?>
+<h2><?= $article->getTitle() ?></h2>
+<p><?= nl2br($article->getBody()) ?></p>
+<?= $this->partial(
+  'magazines/index/_comments',
+  array(
+    'comments' => $comments,
+    'on' => 'article',
+    'id' => $article->getId()
+  )
+) ?>
