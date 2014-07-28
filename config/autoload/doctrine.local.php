@@ -5,12 +5,12 @@ return array(
         'connection' => array(
             'orm_default' => array(
                 'params' => array(
-                    'host'     => 'host',
-                    'user'     => 'user',
-                    'password' => 'pass',
-                    'dbname'   => 'db',
-                )
-            )
-        )
+                    'host'     => 'localhost',
+                    'user'     => 'magazines',
+                    'password' => 'magazines',
+                    'dbname'   => 'magazines',
+                ),
+            ),
+        ),
     ),
 );
