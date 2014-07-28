@@ -12,6 +12,8 @@ mysql> create database magazines;
 
 mysql> grant all privileges on magazines.* to 'magazines'@'localhost' identified by 'magazines';
 
+mysql> flush privileges;
+
 mysql> exit
 
 $ mysql -uroot -p < install/magazines.sql
